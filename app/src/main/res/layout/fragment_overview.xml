@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable name="registrationViewModel"
+            type="com.example.monitorcardiaco.registration.RegistrationViewModel"/>
+
+        <variable name="overviewViewModel"
+            type="com.example.monitorcardiaco.overview.OverviewViewModel"/>
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                style="@style/Widget.MaterialComponents.FloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_plus"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:backgroundTint="@color/colorAccent"
+                app:rippleColor="@color/white" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:id="@+id/fabParam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Inserisci Parametri"
+                android:text="Inserisci Parametri"
+                android:tint="@color/grey_80"
+                app:backgroundTint="@color/grey_20"
+                app:layout_constraintBottom_toTopOf="@+id/fab"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/white" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:id="@+id/fabList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Registra Evento"
+                android:text="Registra Evento"
+                android:tint="@color/grey_80"
+                app:backgroundTint="@color/grey_20"
+                app:layout_constraintBottom_toTopOf="@+id/fabParam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/white" />
+
+            <TextView
+                android:id="@+id/title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Monitor Utente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subtitle_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Benvenuto nel tuo Monitor. \n Visualizza i tuoi parametri e premi il bottone per modificarli"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_textview" />
+
+            <TextView
+                android:id="@+id/name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="32dp"
+                android:text="Nome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subtitle_textview" />
+
+            <TextView
+                android:id="@+id/user_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="32dp"
+                android:text="@{overviewViewModel.user.name}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subtitle_textview"
+                tools:text="Nome Utente" />
+
+            <TextView
+                android:id="@+id/surname_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Cognome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_textview" />
+
+            <TextView
+                android:id="@+id/user_surname_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:text="@{overviewViewModel.user.surname}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_name_textview"
+                tools:text="Cognome Utente" />
+
+            <TextView
+                android:id="@+id/gender_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Sesso"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/surname_textview" />
+
+            <TextView
+                android:id="@+id/user_gender_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:text="@{overviewViewModel.user.gender}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_surname_textview"
+                tools:text="Maschio" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="208dp" />
+
+            <TextView
+                android:id="@+id/birthdate_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Data di Nascita"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gender_textview" />
+
+            <TextView
+                android:id="@+id/user_birthdate_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:text="@{overviewViewModel.user.birthdate}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_gender_textview"
+                tools:text="18/11/1997" />
+
+            <TextView
+                android:id="@+id/birthplace_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Luogo di Nascita"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birthdate_textview" />
+
+            <TextView
+                android:id="@+id/user_birthplace_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:text="@{overviewViewModel.user.birthplace}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_birthdate_textview"
+                tools:text="Bologna" />
+
+            <TextView
+                android:id="@+id/residence_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Residenza"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birthplace_textview" />
+
+            <TextView
+                android:id="@+id/user_residence_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:text="@{overviewViewModel.user.residence}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_birthplace_textview"
+                tools:text="Bologna" />
+
+            <TextView
+                android:id="@+id/height_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Altezza"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/residence_textview" />
+
+            <TextView
+                android:id="@+id/user_height_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_residence_textview"
+                tools:text="177 cm" />
+
+            <TextView
+                android:id="@+id/weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Peso"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/height_textview" />
+
+            <TextView
+                android:id="@+id/user_weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_height_textview"
+                tools:text="70 kg" />
+
+            <TextView
+                android:id="@+id/type_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Tipologia Paziente"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weight_textview" />
+
+            <TextView
+                android:id="@+id/user_type_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_weight_textview"
+                tools:text="LVAD/No LVAD" />
+
+            <TextView
+                android:id="@+id/device_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Dispositivo LVAD"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_textview"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/user_device_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_type_textview"
+                tools:visibility="visible"
+                tools:text="HVAD" />
+
+            <TextView
+                android:id="@+id/rpm_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="RPM"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/device_textview"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/user_rpm_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_device_textview"
+                tools:visibility="visible"
+                tools:text="100 rpm" />
+
+            <TextView
+                android:id="@+id/watt_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Watt"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rpm_textview"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/user_watt_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_rpm_textview"
+                tools:visibility="visible"
+                tools:text="100 W" />
+
+            <TextView
+                android:id="@+id/flux_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Flusso Medio"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/watt_textview"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/user_flux_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_watt_textview"
+                tools:visibility="visible"
+                tools:text="100 L/m" />
+
+            <TextView
+                android:id="@+id/pi_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="PI"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flux_textview"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/user_pi_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_flux_textview"
+                tools:visibility="visible"
+                tools:text="10.2" />
+
+            <TextView
+                android:id="@+id/maxmin_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Picco e Depressione"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pi_textview"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/user_maxmin_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="16dp"
+                android:visibility="@{overviewViewModel.hasLvad ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_pi_textview"
+                tools:visibility="visible"
+                tools:text="180,90" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+<!--    <LinearLayout-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textview"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textview2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--    </LinearLayout>-->
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/overviewFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.monitorcardiaco.login.LoginFragment"
+        android:label="LoginFragment"/>
+
+    <fragment
+        android:id="@+id/registrationParamFragment"
+        android:name="com.example.monitorcardiaco.registration.RegistrationParamFragment"
+        android:label="Registrazione - Fase 1">
+        <action
+            android:id="@+id/action_registrationParamFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.monitorcardiaco.registration.RegistrationFragment"
+        android:label="Registrazione - Fase 2">
+        <action
+            android:id="@+id/action_registrationFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment"
+            app:popUpTo="@+id/registrationParamFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.monitorcardiaco.overview.OverviewFragment"
+        android:label="MonitorCardiaco">
+        <action
+            android:id="@+id/action_overviewFragment_to_emailFragment"
+            app:destination="@id/emailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.example.monitorcardiaco.email.EmailFragment"
+        android:label="EmailFragment" />
+
+
+</navigation>

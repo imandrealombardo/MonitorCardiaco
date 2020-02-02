@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@id/emailFragment"
+        android:icon="@drawable/ic_plus"
+        android:title="Track" />
+
+    <item
+        android:id="@id/loginFragment"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Documentazione"/>
+
+    <item
+        android:id="@id/overviewFragment"
+        android:icon="@drawable/ic_plus"
+        android:title="Invio Documenti"/>
+
+</menu>

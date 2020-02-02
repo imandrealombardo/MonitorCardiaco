@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MonitorCardiaco</string>
+    <string name="welcome_text">Benvenuto nell\'App. \n Registrati compilando i seguenti campi.</string>
+    <string name="name_hint">Nome</string>
+    <string name="surname_hint">Cognome</string>
+    <string name="user_type_hint">Tipologia Paziente</string>
+    <string name="user_device_hint">Dispositivo</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="registration_button">Registrati</string>
+    <string name="user_gender_hint">Sesso</string>
+    <string name="pathology_hint">Patologia di Base</string>
+    <string name="nyha_class_hint">Classe NYHA</string>
+    <string name="intermacs_class_hint">Classe INTERMACS</string>
+    <string name="height_hint">Altezza (cm)</string>
+    <string name="weight_hint">Peso (kg)</string>
+
+    <string name="open">Apri</string>
+    <string name="close">Chiudi</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
