@@ -3,6 +3,7 @@ package com.example.monitorcardiaco
 import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -74,9 +75,9 @@ class MainActivity : AppCompatActivity() {
      * Set the toolbar, set the drawerLayout, set the drawerToggle
      */
     private fun setupNavigationDrawer() {
-        setSupportActionBar(findViewById(R.id.toolbar))
-
         toolbar = findViewById(R.id.toolbar)
+
+        setSupportActionBar(toolbar)
 
         drawerLayout = (findViewById<DrawerLayout>(R.id.drawer_layout))
             .apply {
