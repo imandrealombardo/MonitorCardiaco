@@ -21,12 +21,6 @@ class OverviewViewModel(val database: UserDatabaseDao,
                         private val userRepository: IUserRepository
 ) : ViewModel() {
 
-    /**
-     * This is the job for all coroutines started by this ViewModel.
-     *
-     * Cancelling this job will cancel all coroutines started by this ViewModel.
-     */
-
     private val _user = userRepository.user
 
     var hasLvad = MutableLiveData<Boolean>()

@@ -1,9 +1,5 @@
 package com.example.monitorcardiaco.registration
 
-import android.app.Application
-import android.util.Log
-import androidx.lifecycle.*
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,10 +9,7 @@ import com.example.monitorcardiaco.database.CardioParams
 import com.example.monitorcardiaco.database.Lvad
 import com.example.monitorcardiaco.database.User
 import com.example.monitorcardiaco.repository.IUserRepository
-import com.example.monitorcardiaco.repository.UserRepository
 import kotlinx.coroutines.*
-import java.time.LocalDate
-import kotlin.contracts.contract
 
 /**
  * ViewModel for RegistrationFragment.
@@ -65,8 +58,8 @@ class RegistrationViewModel(private val repository: IUserRepository) : ViewModel
     lateinit var userPathologyType: String
     var userNyhaClass = -1
     var userIntermacsClass = -1
-    var userHeight = -1
-    var userWeight = -1
+    var userHeight = 0
+    var userWeight = 0
 
 
     val userTypeList = listOf("No LVAD", "LVAD")
@@ -112,7 +105,8 @@ class RegistrationViewModel(private val repository: IUserRepository) : ViewModel
         this.userHeight = height.value!!.toInt()
         this.userWeight = weight.value!!.toInt()
 
-        if (userDevice != null) {
+        //TODO: change to != null
+        if (userDevice != "null") {
             lvad = Lvad(userDevice!!, null, null, null, null, null, null)
         }
 
@@ -143,7 +137,7 @@ class RegistrationViewModel(private val repository: IUserRepository) : ViewModel
     }
 
     private fun registerUser(newUser: User) = uiScope.launch {
-        repository.registerUser(newUser)
+        repository.insertUser(newUser)
         _user.value = newUser
         registerNewUser()
         // TODO: Apply Event instead of LiveData observation

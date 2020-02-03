@@ -1,17 +1,13 @@
 package com.example.monitorcardiaco.registration
 
-import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.monitorcardiaco.database.FakeUserDatabaseDao
 import com.example.monitorcardiaco.database.FakeUserRepository
 import com.example.monitorcardiaco.database.User
 import com.example.monitorcardiaco.getOrAwaitValue
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.resetMain
@@ -23,8 +19,6 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.annotation.Config
 
 //@RunWith(AndroidJUnit4::class)
 //@Config(sdk = [Build.VERSION_CODES.O_MR1])
@@ -52,11 +46,11 @@ class RegistrationViewModelTest {
     @Before
     fun setupViewModel() {
         _user1.value = User(0,"Name", "Surname","LVAD",
-            "Maschio", "18/11/1997", "Bologna","Bologna")
+            "Maschio", "18/11/1980", "Italy","Italy", null, null, null)
         dataSource = FakeUserDatabaseDao(_user1)
         userRepository = FakeUserRepository(dataSource)
-        runBlocking { userRepository.registerUser(User(0,"Name", "Surname","LVAD",
-            "Maschio", "18/11/1997", "Bologna","Bologna")) }
+        runBlocking { userRepository.insertUser(User(0,"Name", "Surname","LVAD",
+            "Maschio", "18/11/1980", "Italy","Italy", null, null, null)) }
 
         registrationViewModel = RegistrationViewModel(userRepository)
 

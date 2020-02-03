@@ -6,24 +6,19 @@ import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.internal.inject.InstrumentationContext
 import androidx.test.espresso.matcher.ViewMatchers.*
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 import androidx.test.filters.MediumTest;
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.example.monitorcardiaco.R
 import com.example.monitorcardiaco.ServiceLocator
-import com.example.monitorcardiaco.database.FakeAndroidTestUserRepository
 import com.example.monitorcardiaco.database.User
 import com.example.monitorcardiaco.repository.IUserRepository
-import com.example.monitorcardiaco.repository.UserRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
 @MediumTest
@@ -48,9 +43,9 @@ class OverviewFragmentTest {
 
         runBlocking {
             // GIVEN - Add user to the DB
-            val user = User(0, "Name", "Surname", "LVAD",
-                            "Maschio", "18/11/1997", "Bologna", "Bologna")
-            repository.registerUser(user)
+            val user = User(0,"Name", "Surname","LVAD",
+                "Maschio", "18/11/1980", "Italy","Italy", null, null, null)
+            repository.insertUser(user)
 
             // WHEN - Overview fragment launched to display User
             val args = Bundle()

@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         /**
          * Conditional Navigation: if it's a FTUE, go to the Registration Parameters Fragment
          */
-        if (checkFirstRun()) {
+        if (checkFirstRun2()) {
             graph.startDestination = R.id.registrationParamFragment
         } else {
             graph.startDestination = R.id.overviewFragment
@@ -107,6 +107,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    private fun checkFirstRun2(): Boolean {
+        return (userRepository.user.value == null)
     }
 
     /**

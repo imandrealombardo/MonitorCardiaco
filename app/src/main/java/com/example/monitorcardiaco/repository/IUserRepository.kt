@@ -5,8 +5,9 @@ import com.example.monitorcardiaco.database.User
 
 interface IUserRepository {
     val user: LiveData<User>
+//    val userWithDays: LiveData<List<UserWithDays>>
 
-    suspend fun registerUser(user: User)
+    suspend fun insertUser(user: User)
    // suspend fun getUser(): LiveData<User>
    // suspend fun getUser(id: String): LiveData<User>
 

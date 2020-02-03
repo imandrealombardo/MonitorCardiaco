@@ -38,7 +38,7 @@ data class User (
             @ColumnInfo(name="residence")
             var residence: String,
 
-            @Embedded val lvad: Lvad?,
+            @Embedded var lvad: Lvad?,
 
             @Embedded val bodyparams: BodyParams?,
 

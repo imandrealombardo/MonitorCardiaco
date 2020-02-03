@@ -49,7 +49,7 @@
                 android:text="Inserisci Parametri"
                 android:tint="@color/grey_80"
                 app:backgroundTint="@color/grey_20"
-                app:layout_constraintBottom_toTopOf="@+id/fab"
+                app:layout_constraintBottom_toTopOf="@+id/fabList"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:rippleColor="@color/white" />
 
@@ -66,33 +66,40 @@
                 android:text="Registra Evento"
                 android:tint="@color/grey_80"
                 app:backgroundTint="@color/grey_20"
-                app:layout_constraintBottom_toTopOf="@+id/fabParam"
+                app:layout_constraintBottom_toTopOf="@+id/fabCalendar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:rippleColor="@color/white" />
 
-            <TextView
-                android:id="@+id/title_textview"
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:id="@+id/fabCalendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Monitor Utente"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Calendario"
+                android:text="Calendario"
+                android:tint="@color/grey_80"
+                app:backgroundTint="@color/grey_20"
+                app:layout_constraintBottom_toTopOf="@+id/fab"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:rippleColor="@color/white" />
 
             <TextView
                 android:id="@+id/subtitle_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="56dp"
                 android:layout_marginEnd="16dp"
                 android:text="Benvenuto nel tuo Monitor. \n Visualizza i tuoi parametri e premi il bottone per modificarli"
                 android:textAlignment="center"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_textview" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/name_textview"

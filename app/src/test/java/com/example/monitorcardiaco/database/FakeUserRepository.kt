@@ -10,7 +10,7 @@ class FakeUserRepository (private val dataSource: FakeUserDatabaseDao) : IUserRe
     override val user: LiveData<User>
         get() = dataSource.getUser()
 
-    override suspend fun registerUser(newUser: User) {
+    override suspend fun insertUser(newUser: User) {
         dataSource.insert(newUser)
     }
 

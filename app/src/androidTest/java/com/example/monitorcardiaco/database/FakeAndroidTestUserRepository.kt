@@ -19,12 +19,12 @@ class FakeAndroidTestUserRepository : IUserRepository {
     override val user: LiveData<User>
         get() = _user
 
-    override suspend fun registerUser(user: User) {
+    override suspend fun insertUser(user: User) {
         runBlocking { _user.postValue(user) }
     }
 
     override suspend fun clearDatabase() {
-       runBlocking { _user.value = User(0,"", "", "", "", "", "", "") }
+       runBlocking { _user.value = User(0,"", "", "", "", "", "", "", null, null, null) }
     }
 
 }

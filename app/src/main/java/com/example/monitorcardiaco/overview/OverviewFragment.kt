@@ -51,6 +51,7 @@ class OverviewFragment : Fragment() {
         handler.postDelayed({
             ViewAnimation.init(binding.fabParam)
             ViewAnimation.init(binding.fabList)
+            ViewAnimation.init(binding.fabCalendar)
         }, 50)
 
         viewModel!!.isRotated.value = false
@@ -63,9 +64,11 @@ class OverviewFragment : Fragment() {
                 if (this.value == true) {
                     ViewAnimation.showIn(binding.fabParam)
                     ViewAnimation.showIn(binding.fabList)
+                    ViewAnimation.showIn(binding.fabCalendar)
                 } else {
                     ViewAnimation.showOut(binding.fabParam)
                     ViewAnimation.showOut(binding.fabList)
+                    ViewAnimation.showOut(binding.fabCalendar)
                 }
             }
         }
@@ -85,15 +88,16 @@ class OverviewFragment : Fragment() {
                     user_height_textview.text = "${user.bodyparams!!.height} cm"
                     user_weight_textview.text = "${user.bodyparams.weight} kg"
 
-                    if (user.lvad != null) {
+                    user.lvad?.let {
                         viewModel.hasLvad.value = true
-                        user_device_textview.text = user.lvad.device
-                        user_rpm_textview.text = if (user.lvad.rpm != null) "${user.lvad.rpm} rpm" else ""
-                        user_watt_textview.text = if (user.lvad.watt != null) "${user.lvad.watt} watt" else ""
-                        user_flux_textview.text = if (user.lvad.flux != null) "${user.lvad.flux} watt" else ""
-                        user_pi_textview.text = if (user.lvad.pi != null) "${user.lvad.pi}" else ""
-                        user_maxmin_textview.text = if (user.lvad.max != null && user.lvad.min != null)
-                                                    "${user.lvad.max},${user.lvad.min}" else ""
+                        user_device_textview.text = it.device
+                        user_rpm_textview.text = if (it.rpm != null) "${it.rpm} rpm" else ""
+                        user_watt_textview.text = if (it.watt != null) "${it.watt} watt" else ""
+                        user_flux_textview.text = if (it.flux != null) "${it.flux} watt" else ""
+                        user_pi_textview.text = if (it.pi != null) "${it.pi}" else ""
+                        user_maxmin_textview.text = if (it.max != null && it.min != null)
+                            "${it.max},${it.min}" else ""
+
                     }
 
 

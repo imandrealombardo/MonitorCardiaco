@@ -6,7 +6,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
@@ -18,7 +17,6 @@ import com.example.monitorcardiaco.repository.IUserRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -41,8 +39,8 @@ class RegistrationFragmentTest {
     @Test
     fun clickRegisterButton_navigateToOverviewFragmentOne() = runBlockingTest {
 
-        repository.registerUser(User(0,"Name", "Surname", "LVAD",
-                                "Maschio", "18/11/1997", "Bologna", "Bologna"))
+        repository.insertUser(User(0,"Name", "Surname","LVAD",
+            "Maschio", "18/11/1980", "Italy","Italy", null, null, null))
 
         // GIVEN - On the home screen
         val scenario = launchFragmentInContainer<RegistrationFragment>(Bundle(), R.style.AppTheme)

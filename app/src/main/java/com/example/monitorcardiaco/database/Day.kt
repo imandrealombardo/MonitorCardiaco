@@ -2,9 +2,11 @@ package com.example.monitorcardiaco.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
+@Entity(tableName = "day_table")
 data class Day(
 
     @PrimaryKey

@@ -15,16 +15,22 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        kapt {
+            arguments {
+                arg("room.incremental", "true")
+            }
+            useBuildCache = false
         }
-    }
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+        testOptions {
+            unitTests {
+                includeAndroidResources = true
+            }
         }
     }
 
@@ -59,6 +65,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$version_room"
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
     androidTestImplementation "androidx.room:room-testing:$version_room"
+
+    annotationProcessor "androidx.room:room-compiler:2.2.3"
 
     // Coroutines
     //implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"

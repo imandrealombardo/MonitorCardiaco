@@ -4,18 +4,18 @@
     tools:showIn="navigation_view">
 
     <item
-        android:id="@id/emailFragment"
-        android:icon="@drawable/ic_plus"
+        android:id="@id/trackingFragment"
+        android:icon="@drawable/ic_track"
         android:title="Track" />
 
     <item
-        android:id="@id/loginFragment"
-        android:icon="@drawable/ic_launcher_background"
+        android:id="@id/documentationFragment"
+        android:icon="@drawable/ic_documentation"
         android:title="Documentazione"/>
 
     <item
-        android:id="@id/overviewFragment"
-        android:icon="@drawable/ic_plus"
-        android:title="Invio Documenti"/>
+        android:id="@id/emailFragment"
+        android:icon="@drawable/ic_email"
+        android:title="Email"/>
 
 </menu>

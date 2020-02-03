@@ -1,10 +1,7 @@
 package com.example.monitorcardiaco.repository
 
-import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.room.Room
 import com.example.monitorcardiaco.database.User
-import com.example.monitorcardiaco.database.UserDatabase
 import com.example.monitorcardiaco.database.UserDatabaseDao
 import kotlinx.coroutines.*
 
@@ -33,7 +30,7 @@ class UserRepository(private val dataSource: UserDatabaseDao,
 //        }
 //    }
 
-    override suspend fun registerUser(user: User) {
+    override suspend fun insertUser(user: User) {
         dataSource.insert(user)
     }
 //

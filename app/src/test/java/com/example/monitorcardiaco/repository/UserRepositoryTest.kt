@@ -4,9 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.monitorcardiaco.database.FakeUserDatabaseDao
-import com.example.monitorcardiaco.database.FakeUserRepository
 import com.example.monitorcardiaco.database.User
-import com.example.monitorcardiaco.database.UserDatabaseDao
 import com.example.monitorcardiaco.getOrAwaitValue
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +32,7 @@ class UserRepositoryTest {
     @Before
     fun createRepository() {
         _user1.value = User(0,"Name", "Surname","LVAD",
-            "Maschio", "18/11/1997", "Bologna","Bologna")
+            "Maschio", "18/11/1980", "Italy","Italy", null, null, null)
 
         dataSource = FakeUserDatabaseDao(_user1)
         // TODO Dispatchers.Unconfined should be replaced with Dispatchers.Main
@@ -42,7 +40,7 @@ class UserRepositoryTest {
         //  so we will keep this as Unconfined for now.
         userRepository = UserRepository(dataSource, Dispatchers.Unconfined)
 
-        runBlocking { userRepository.registerUser(_user1.value!!) }
+        runBlocking { userRepository.insertUser(_user1.value!!) }
     }
 
     @Test

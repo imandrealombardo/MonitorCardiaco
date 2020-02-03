@@ -4,11 +4,6 @@
     app:startDestination="@id/overviewFragment">
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.monitorcardiaco.login.LoginFragment"
-        android:label="LoginFragment"/>
-
-    <fragment
         android:id="@+id/registrationParamFragment"
         android:name="com.example.monitorcardiaco.registration.RegistrationParamFragment"
         android:label="Registrazione - Fase 1">
@@ -34,11 +29,46 @@
         <action
             android:id="@+id/action_overviewFragment_to_emailFragment"
             app:destination="@id/emailFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_documentationFragment"
+            app:destination="@id/documentationFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_addEditParamsFragment"
+            app:destination="@id/addEditParamsFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_addEventFragment"
+            app:destination="@id/addEventFragment" />
     </fragment>
     <fragment
         android:id="@+id/emailFragment"
         android:name="com.example.monitorcardiaco.email.EmailFragment"
         android:label="EmailFragment" />
+    <fragment
+        android:id="@+id/documentationFragment"
+        android:name="com.example.monitorcardiaco.documentation.DocumentationFragment"
+        android:label="DocumentationFragment" />
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.example.monitorcardiaco.tracking.TrackingFragment"
+        android:label="TrackingFragment" />
+    <fragment
+        android:id="@+id/addEditParamsFragment"
+        android:name="com.example.monitorcardiaco.addeditparams.AddEditParamsFragment"
+        android:label="AddEditParamsFragment" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.monitorcardiaco.calendar.CalendarFragment"
+        android:label="CalendarFragment" />
+    <fragment
+        android:id="@+id/addEventFragment"
+        android:name="com.example.monitorcardiaco.addevent.AddEventFragment"
+        android:label="AddEventFragment" />
 
 
 </navigation>
